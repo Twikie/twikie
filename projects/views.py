@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from projects.models import Project
@@ -21,4 +22,4 @@ def new(request):
             return HttpResponse('Project successfully created, nigga')
     else:
         form = NewProjectForm()
-    return render_to_response('new.html', {'form': form})
+    return render_to_response('new.html', {'form': form}, context_instance=RequestContext(request))
