@@ -7,9 +7,12 @@ class Project(models.Model):
 
     def __unicode__(self):
         return self.name
+        
+class Revision(models.Model):
+    project = models.ForeignKey(Project)
 
 class Annotation(models.Model):
-    project = models.ForeignKey(Project)
+    revision = models.ForeignKey(Revision)
     author = models.ForeignKey(User)
     x = models.IntegerField()
     y = models.IntegerField()

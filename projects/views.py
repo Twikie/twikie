@@ -23,3 +23,8 @@ def new(request):
     else:
         form = NewProjectForm()
     return render_to_response('new.html', {'form': form}, context_instance=RequestContext(request))
+    
+@login_required
+def detail(request, project_id):
+    project_details = Project.objects.get(pk=project_id)
+    return HttpResponse("Welcome to the Project: %s" % project_details.name)

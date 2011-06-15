@@ -7,7 +7,7 @@ from django.contrib.auth.views import login
 urlpatterns = patterns('',
     (r'^accounts/login/$', login),
     (r'^projects/$', 'projects.views.index'),
-    (r'^projects/(?P<project_id>\d+)$', 'projects.views.detail'),
+    (r'^projects/(?P<project_id>\d+)/$', 'projects.views.detail'),
     (r'^projects/new', 'projects.views.new'),
     (r'^accounts/register/$', 'accounts.views.registration'),
     # Examples:
