@@ -1,0 +1,11 @@
+<form action="" method="post"> {% csrf_token %}
+<h3> {{project.name}} </h3>
+    <p>Owner: <a href="/accounts/{{project.user}}">{{project.user}}</a></p>
+    {% if revisions %}
+        {% for revision in revisions %}
+            <li>{{revision.pk}}</li>
+        {% endfor %}
+    {% else %}
+        <p>We ain't gots no revisions to see.</p>
+    {% endif %}
+</form>
