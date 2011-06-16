@@ -1,0 +1,9 @@
+<form action="" method="post"> {% csrf_token %}
+<h3> Users </h3>
+    {% if users %}
+        {% for user in users %}
+            <p>{{user}} {{user.password}}</p>
+        {% endfor %}
+    {% endif %}
+</form>
+

@@ -8,8 +8,9 @@ from django.http import HttpResponse
 from projects.forms import NewProjectForm
 from projects.forms import NewRevisionForm
 
+@login_required
 def index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.filter(user=request.user)
     return render_to_response('index.html', {'projects': projects})
 
 @login_required
@@ -31,7 +32,7 @@ def new(request):
 @login_required
 def detail(request, project_id):
     project_details = Project.objects.get(pk=project_id)
-    project_revisions = Revision.objects.filter(project=project_id)
+    project_revisions = Revision.objects.filter(project=project_id).order_by('-created_at')
     return render_to_response('details.html', {'project': project_details, 'revisions': project_revisions});
     
 @login_required

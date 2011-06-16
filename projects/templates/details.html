@@ -3,7 +3,7 @@
     <p>Owner: <a href="/accounts/{{project.user}}">{{project.user}}</a></p>
     {% if revisions %}
         {% for revision in revisions %}
-            <li>Revision {{revision.pk}}</li>
+            <li>{{revision.created_at|date:"N j, Y - g:i a"}}</li>
         {% endfor %}
     {% else %}
         <p>We ain't gots no revisions to see.</p>

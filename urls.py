@@ -5,6 +5,7 @@ from django.contrib.auth.views import login
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^accounts/$', 'accounts.views.users'),
     (r'^accounts/login/$', login),
     (r'^projects/$', 'projects.views.index'),
     (r'^projects/(?P<project_id>\d+)/$', 'projects.views.detail'),

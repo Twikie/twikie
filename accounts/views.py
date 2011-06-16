@@ -9,7 +9,13 @@ def registration(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
+            new_user.set_password(new_user.password)
+            new_user.save()
             return HttpResponse('User created')
     else:
         form = RegistrationForm()
     return render_to_response('registration.html', {'form': form}, context_instance=RequestContext(request))
+    
+def users(request):
+    users = User.objects.all()
+    return render_to_response('users.html', {'users': users})
