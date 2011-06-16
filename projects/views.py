@@ -10,7 +10,7 @@ from projects.forms import NewRevisionForm
 
 @login_required
 def index(request):
-    projects = Project.objects.filter(user=request.user)
+    projects = Project.objects.all()
     return render_to_response('index.html', {'projects': projects})
 
 @login_required
@@ -20,10 +20,11 @@ def new(request):
         form = NewProjectForm(request.POST)
         if form.is_valid():
             new_project = form.save(commit=False)
-            new_project.user = user
+            new_project.owner = user
             new_project.save()
             new_revision = Revision(project=new_project)
             new_revision.save()
+            form.save_m2m()
             return HttpResponse('Project successfully created, nigga')
     else:
         form = NewProjectForm()
@@ -33,6 +34,7 @@ def new(request):
 def detail(request, project_id):
     project_details = Project.objects.get(pk=project_id)
     project_revisions = Revision.objects.filter(project=project_id).order_by('-created_at')
+
     return render_to_response('details.html', {'project': project_details, 'revisions': project_revisions});
     
 @login_required

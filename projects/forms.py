@@ -5,8 +5,9 @@ from projects.models import Revision
 class NewProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        exclude = ('user')
+        exclude = ('owner')
 
 class NewRevisionForm(forms.ModelForm):
     class Meta:
         model = Revision
+        exclude = ('project')

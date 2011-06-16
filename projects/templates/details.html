@@ -1,11 +1,29 @@
 <form action="" method="post"> {% csrf_token %}
 <h3> {{project.name}} </h3>
-    <p>Owner: <a href="/accounts/{{project.user}}">{{project.user}}</a></p>
-    {% if revisions %}
-        {% for revision in revisions %}
-            <li>{{revision.created_at|date:"N j, Y - g:i a"}}</li>
-        {% endfor %}
-    {% else %}
-        <p>We ain't gots no revisions to see.</p>
-    {% endif %}
+<a href="revisions/new/">New Revision</a>
+<ul>
+    <li>
+        Owner: <a href="/accounts/{{project.owner}}">{{project.owner}}</a>
+    </li>
+    <li>
+        Members:
+        <ul>
+            {% for member in project.members.all %}
+                <li>{{member}}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    <li>
+        Revisions:
+        <ul>
+            {% if revisions %}
+                {% for revision in revisions %}
+                    <li>{{revision.created_at|date:"N j, Y - g:i a"}}</li>
+                {% endfor %}
+            {% else %}
+                <p>We ain't gots no revisions to see.</p>
+            {% endif %}
+        </ul>
+    </li>
+</ul>
 </form>
