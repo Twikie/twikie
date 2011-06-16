@@ -6,6 +6,7 @@ from projects.models import Project
 from projects.models import Revision
 from django.http import HttpResponse
 from projects.forms import NewProjectForm
+from projects.forms import NewRevisionForm
 
 def index(request):
     projects = Project.objects.all()
@@ -25,11 +26,25 @@ def new(request):
             return HttpResponse('Project successfully created, nigga')
     else:
         form = NewProjectForm()
-    return render_to_response('new.html', {'form': form}, context_instance=RequestContext(request))
+    return render_to_response('new.html', {'form': form, 'type':'project'}, context_instance=RequestContext(request))
     
 @login_required
 def detail(request, project_id):
     project_details = Project.objects.get(pk=project_id)
     project_revisions = Revision.objects.filter(project=project_id)
     return render_to_response('details.html', {'project': project_details, 'revisions': project_revisions});
+    
+@login_required
+def newrev(request, project_id):
+    if request.POST:
+        form = NewRevisionForm(request.POST)
+        if form.is_valid():
+            new_revision = form.save(commit=False)
+            new_revision.project = Project.objects.get(pk=project_id)
+            new_revision.save()
+            return HttpResponse('Revision successfully created')
+    else:
+        form = NewRevisionForm()
+    return render_to_response('new.html', {'form':form, 'type':'revision'}, context_instance=RequestContext(request))
+    
     

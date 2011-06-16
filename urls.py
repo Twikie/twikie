@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^accounts/login/$', login),
     (r'^projects/$', 'projects.views.index'),
     (r'^projects/(?P<project_id>\d+)/$', 'projects.views.detail'),
+    (r'^projects/(?P<project_id>\d+)/revisions/new/$', 'projects.views.newrev'),
     (r'^projects/new', 'projects.views.new'),
     (r'^accounts/register/$', 'accounts.views.registration'),
     # Examples:
