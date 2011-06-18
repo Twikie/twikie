@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^projects/$', 'projects.views.index'),
     (r'^projects/(?P<project_id>\d+)/$', 'projects.views.detail'),
     (r'^projects/(?P<project_id>\d+)/revisions/new/$', 'projects.views.newrev'),
+    (r'^projects/(?P<project_id>\d+)/revisions/(?P<rev_id>\d+)/$', 'projects.views.rev'),
     (r'^projects/new', 'projects.views.new'),
     (r'^accounts/register/$', 'accounts.views.registration'),
     # Examples:
