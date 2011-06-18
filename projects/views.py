@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.auth.models import User
@@ -7,6 +8,7 @@ from projects.models import Revision
 from django.http import HttpResponse
 from projects.forms import NewProjectForm
 from projects.forms import NewRevisionForm
+
 
 @login_required
 def index(request):
@@ -35,7 +37,7 @@ def detail(request, project_id):
     project_details = Project.objects.get(pk=project_id)
     project_revisions = Revision.objects.filter(project=project_id).order_by('-created_at')
 
-    return render_to_response('details.html', {'project': project_details, 'revisions': project_revisions});
+    return render_to_response('project.html', {'project': project_details, 'revisions': project_revisions});
     
 @login_required
 def newrev(request, project_id):
@@ -49,5 +51,10 @@ def newrev(request, project_id):
     else:
         form = NewRevisionForm()
     return render_to_response('new.html', {'form':form, 'type':'revision'}, context_instance=RequestContext(request))
+
+@login_required
+def rev(request, project_id, rev_id):
+    revision = Revision.objects.get(pk=rev_id)
+    return render_to_response('revision.html', {'revision':revision})
     
     
