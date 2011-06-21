@@ -5,14 +5,8 @@ from django.contrib.auth.views import login
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^accounts/$', 'accounts.views.users'),
-    (r'^accounts/login/$', login),
-    (r'^projects/$', 'projects.views.index'),
-    (r'^projects/(?P<project_id>\d+)/$', 'projects.views.detail'),
-    (r'^projects/(?P<project_id>\d+)/revisions/new/$', 'projects.views.newrev'),
-    (r'^projects/(?P<project_id>\d+)/revisions/(?P<rev_id>\d+)/$', 'projects.views.rev'),
-    (r'^projects/new', 'projects.views.new'),
-    (r'^accounts/register/$', 'accounts.views.registration'),
+    url(r'^accounts/', include('accounts.urls'),
+    url(r'^projects/', include('projects.urls'),
     # Examples:
     # url(r'^$', 'twikie.views.home', name='home'),
     # url(r'^twikie/', include('twikie.foo.urls')),
