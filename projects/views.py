@@ -42,12 +42,13 @@ def detail(request, user_name, project_name):
     return render_to_response('project.html', {'project': project, 'pages': pages});
     
 @login_required
-def newpage(request, project_id):
+def newpage(request, user_name, project_name):
     if request.POST:
         form = NewPageForm(request.POST)
         if form.is_valid():
             new_page = form.save(commit=False)
-            new_page.project = Project.objects.get(pk=project_id)
+            owner = User.objects.get(username=user_name)
+            new_page.project = Project.objects.get(owner=owner, name=project_name)
             new_page.save()
             return HttpResponse('Page successfully created')
     else:

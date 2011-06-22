@@ -5,10 +5,13 @@ from django.conf.urls.defaults import patterns, include, url
 
 urlpatterns = patterns('',
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^projects/', include('projects.urls')),
     url(r'^(?P<user_name>\w+)/$', 'accounts.views.profile'),
-    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/$', 'projects.views.detail'),
-    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/(?P<page_name>\w+)/$', 'projects.views.page'),
+    
+    url(r'^projects/', include('projects.urls')),
+    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('projects.urls')),
+    
+    
+    
     # Examples:
     # url(r'^$', 'twikie.views.home', name='home'),
     # url(r'^twikie/', include('twikie.foo.urls')),
