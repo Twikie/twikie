@@ -37,7 +37,8 @@ def detail(request, user_name, project_name):
     owner = User.objects.get(username=user_name);
     project = Project.objects.get(owner=owner, name=project_name)
     pages = Page.objects.filter(project=project).order_by('-created_at')
-
+    for page in pages:
+        page.name = page.name.replace(' ', '_')
     return render_to_response('project.html', {'project': project, 'pages': pages});
     
 @login_required
@@ -72,8 +73,11 @@ def rev(request, project_id, rev_id):
     return render_to_response('revision.html', {'revision':revision})
     
 @login_required
-def page(request, project_id, page_id):
-    page = Page.objects.get(pk=page_id)
+def page(request, user_name, project_name, page_name):
+    page_name = page_name.replace('_', ' ')
+    owner = User.objects.get(username=user_name)
+    project = Project.objects.get(owner=owner, name=project_name)
+    page = Page.objects.get(project=project, name=page_name)
     return render_to_response('page.html', {'page':page})
     
     

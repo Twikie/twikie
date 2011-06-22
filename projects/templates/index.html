@@ -3,7 +3,7 @@
     <p>Your Projects</p>
     <ul>
     {% for project in projects %}
-        <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
+        <li><a href="/{{ project.owner }}/{{ project.name }}/">{{ project.name }}</a></li>
     {% endfor %}
 {% else %}
     <p>We ain't gots no projects to see.</p>
