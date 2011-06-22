@@ -4,8 +4,8 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^accounts/', include('accounts.urls'),
-    url(r'^projects/', include('projects.urls'),
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^projects/', include('projects.urls')),
     # Examples:
     # url(r'^$', 'twikie.views.home', name='home'),
     # url(r'^twikie/', include('twikie.foo.urls')),
