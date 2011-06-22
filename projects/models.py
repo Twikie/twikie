@@ -20,7 +20,10 @@ class Page(models.Model):
         
 class Revision(models.Model):
     page = models.ForeignKey(Page)
+    revision_number = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add = True)
+    class Meta:
+        unique_together = ("page", "revision_number")
 
 class Annotation(models.Model):
     revision = models.ForeignKey(Revision)

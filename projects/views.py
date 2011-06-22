@@ -38,8 +38,24 @@ def newpage(request, user_name, project_name):
             new_page.save()
             return HttpResponseRedirect('/%s/%s' % (user_name, project_name))
     else:
-            form = NewPageForm()
+        form = NewPageForm()
     return render_to_response('new.html', {'form':form, 'type':'page'}, context_instance=RequestContext(request))
+
+@login_required
+def newrevision(request, user_name, project_name, page_name):
+    user = request.user
+    if request.POST:
+        form = NewRevisionForm(request.POST)
+        if form.is_valid():
+            new_revision = form.save(commit=False)
+            owner = User.objects.get(username=user_name)
+            project = Project.objects.get(owner=owner, name=project_name)
+            new_revision.page = Page.objects.get(project=project, name=page_name)
+            new_revision.save()
+            return HttpResponseRedirect('/%s/%s/%s' % (user_name, project_name, page_name))
+    else:
+        form = NewRevisionForm()
+    return render_to_response('new.html', {'form':form, 'type':'revision'}, context_instance=RequestContext(request))
     
 @login_required
 def project(request, user_name, project_name):
@@ -58,10 +74,17 @@ def page(request, user_name, project_name, page_name):
     owner = User.objects.get(username=user_name)
     project = Project.objects.get(owner=owner, name=project_name)
     page = Page.objects.get(project=project, name=page_name)
-    return render_to_response('page.html', {'page':page})
+    revisions = Revision.objects.filter(page=page)
+    return render_to_response('page.html', {'page':page, 'revisions': revisions})
 
 @login_required
-def revision(request, project_id, rev_id):
+def revision(request, user_name, project_name, page_name, revision_number):
+    page_name = page_name.replace('_', ' ')
+
     user = request.user
-    revision = Revision.objects.get(pk=rev_id)
+    
+    owner = User.objects.get(username=user_name)
+    project = Project.objects.get(owner=owner, name=project_name)
+    page = Page.objects.get(project=project, name=page_name) 
+    revision = Revision.objects.get(page=page, revision_number=revision_number)
     return render_to_response('revision.html', {'revision':revision})

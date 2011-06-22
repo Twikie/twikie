@@ -1,9 +1,8 @@
-<a href="/projects/new/">New Project</a>
 {% if projects %}
-    <p>Your Projects</p>
+    <p>All Projects</p>
     <ul>
     {% for project in projects %}
-        <li><a href="/{{ project.owner }}/{{ project.name }}/">{{ project.name }}</a></li>
+        <li><a href="/{{ project.owner }}/{{ project.name }}/">/{{ project.owner }}/{{ project.name }}/</a></li>
     {% endfor %}
 {% else %}
     <p>We ain't gots no projects to see.</p>
