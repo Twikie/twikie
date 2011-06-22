@@ -19,3 +19,7 @@ def registration(request):
 def users(request):
     users = User.objects.all()
     return render_to_response('users.html', {'users': users})
+    
+def profile(request, user_name):
+    user = User.objects.get(username=user_name);
+    return HttpResponse('Username: '+user.username+'<br /> Email: '+user.email);

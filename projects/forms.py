@@ -1,6 +1,6 @@
 from django import forms
-from projects.models import Project
-from projects.models import Revision
+
+from projects.models import *
 
 class NewProjectForm(forms.ModelForm):
     class Meta:
@@ -10,4 +10,9 @@ class NewProjectForm(forms.ModelForm):
 class NewRevisionForm(forms.ModelForm):
     class Meta:
         model = Revision
+        exclude = ('page')
+        
+class NewPageForm(forms.ModelForm):
+    class Meta:
+        model = Page
         exclude = ('project')

@@ -1,6 +1,6 @@
 <form action="" method="post"> {% csrf_token %}
 <h3> {{project.name}} </h3>
-<a href="revisions/new/">New Revision</a>
+<a href="pages/new/">New Page</a>
 <ul>
     <li>
         Owner: <a href="/accounts/{{project.owner}}">{{project.owner}}</a>
@@ -14,14 +14,14 @@
         </ul>
     </li>
     <li>
-        Revisions:
+        Pages:
         <ul>
-            {% if revisions %}
-                {% for revision in revisions %}
-                    <li><a href="revisions/{{revision.pk}}/">{{revision.created_at|date:"N j, Y - g:i a"}}</a></li>
+            {% if pages %}
+                {% for page in pages %}
+                    <li><a href="pages/{{page.pk}}/">{{page.name}}</a></li>
                 {% endfor %}
             {% else %}
-                <p>We ain't gots no revisions to see.</p>
+                <p>We ain't gots no pages to see.</p>
             {% endif %}
         </ul>
     </li>

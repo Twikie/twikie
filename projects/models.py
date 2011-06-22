@@ -10,8 +10,13 @@ class Project(models.Model):
     def __unicode__(self):
         return self.name
         
-class Revision(models.Model):
+class Page(models.Model):
+    name = models.CharField(max_length=100)
     project = models.ForeignKey(Project)
+    created_at = models.DateTimeField(auto_now_add = True)
+        
+class Revision(models.Model):
+    page = models.ForeignKey(Page)
     created_at = models.DateTimeField(auto_now_add = True)
 
 class Annotation(models.Model):
