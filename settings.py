@@ -2,6 +2,8 @@ import os, sys
 # Django settings for twikie project.
 
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+sys.path.append('apps')
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -105,8 +107,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'twikie.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_PATH, '/projects/templates'),
-    os.path.join(PROJECT_PATH, '/accounts/templates'),
+    os.path.join(PROJECT_PATH, '/apps/frat/templates'),
+    os.path.join(PROJECT_PATH, '/apps/accounts/templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -120,7 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'projects',
+    'frat',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
