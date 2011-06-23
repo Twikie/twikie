@@ -7,6 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from projects.models import *
 from projects.forms import *
 
+from projects.cloud_handlers import upload_cloud_file
+
 def index(request):
     projects = Project.objects.all()
     return render_to_response('index.html', {'projects': projects})
@@ -45,12 +47,13 @@ def newpage(request, user_name, project_name):
 def newrevision(request, user_name, project_name, page_name):
     user = request.user
     if request.POST:
-        form = NewRevisionForm(request.POST)
+        form = NewRevisionForm(request.POST, request.FILES)
         if form.is_valid():
             new_revision = form.save(commit=False)
             owner = User.objects.get(username=user_name)
             project = Project.objects.get(owner=owner, name=project_name)
             new_revision.page = Page.objects.get(project=project, name=page_name)
+            new_revision.image_url = upload_cloud_file(request.FILES['ffile'], user_name, project_name, page_name, new_revision.revision_number)
             new_revision.save()
             return HttpResponseRedirect('/%s/%s/%s' % (user_name, project_name, page_name))
     else:

@@ -22,6 +22,7 @@ class Revision(models.Model):
     page = models.ForeignKey(Page)
     revision_number = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add = True)
+    image_url = models.URLField()
     class Meta:
         unique_together = ("page", "revision_number")
 
