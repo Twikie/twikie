@@ -3,3 +3,6 @@
 
 # python crap
 *.pyc
+
+# local settings
+.private-settings
