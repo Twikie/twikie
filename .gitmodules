@@ -1,0 +1,3 @@
+[submodule "apps/frat"]
+	path = apps/frat
+	url = git@github.com:Twikie/frat.git
