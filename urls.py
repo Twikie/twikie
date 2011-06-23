@@ -7,8 +7,8 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('accounts.urls')),
     url(r'^(?P<user_name>\w+)/$', 'accounts.views.profile'),
     
-    url(r'^projects/', include('projects.urls')),
-    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('projects.urls')),
+    url(r'^projects/', include('frat.urls')),
+    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('frat.urls')),
     
     
     
