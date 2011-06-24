@@ -1,0 +1,11 @@
+<h3> {{user}}'s Profile </h3>
+<h3> Projects </h3>
+    {% if projects %}
+        <ul>
+        {% for project in projects %}
+            <li><a href="{{project}}/">{{project}}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</form>
+

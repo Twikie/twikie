@@ -3,6 +3,7 @@ from accounts.forms import RegistrationForm
 from django.template import RequestContext
 from django.http import  HttpResponse
 from django.contrib.auth.models import User
+from frat.models import Project
 
 def registration(request):
     if request.method == 'POST':
@@ -22,4 +23,5 @@ def users(request):
     
 def profile(request, user_name):
     user = User.objects.get(username=user_name);
-    return HttpResponse('Username: '+user.username+'<br /> Email: '+user.email);
+    projects = Project.objects.filter(owner=user)
+    return render_to_response('profile.html', {'user': user, 'projects': projects} );
