@@ -4,6 +4,7 @@ from django.conf.urls.defaults import patterns, include, url
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    
     url(r'^accounts/', include('accounts.urls')),
     url(r'^(?P<user_name>\w+)/$', 'accounts.views.profile'),
     
@@ -11,6 +12,10 @@ urlpatterns = patterns('',
     url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('frat.urls')),
     
     
+    
+    
+    #needs to be last
+    #url(r'^', 'django.views.generic.simple.direct_to_template', {'template': 'base.html'}),
     
     # Examples:
     # url(r'^$', 'twikie.views.home', name='home'),
