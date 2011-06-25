@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block main %}
 <form action="" method="post"> {% csrf_token %}
 <h3> Users </h3>
     {% if users %}
@@ -8,4 +11,4 @@
         </ul>
     {% endif %}
 </form>
-
+{% endblock main %}
