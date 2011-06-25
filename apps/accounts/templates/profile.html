@@ -1,6 +1,6 @@
+{% extends 'base.html' %}
 {% load gravatar %}
-
-
+{% block main %}
 <h3> <img src="{% gravatar_url user.email %}" />{{user}}'s Profile </h3>
 <h3> Projects </h3>
     {% if projects %}
@@ -12,3 +12,4 @@
     {% endif %}
 </form>
 
+{% endblock main %}
