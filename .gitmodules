@@ -1,3 +1,6 @@
 [submodule "apps/frat"]
 	path = apps/frat
 	url = git@github.com:Twikie/frat.git
+[submodule "media/js/annotate"]
+	path = media/js/annotate
+	url = git@github.com:Twikie/annotate.git
