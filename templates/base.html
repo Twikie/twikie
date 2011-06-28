@@ -4,52 +4,7 @@
     <title>{% block title %}{% endblock %} - Twikie</title>
     
     {% block css %}
-        <style type="text/css">
-            body {
-                margin: 0;
-                font-family: 'Trebuchet-MS', 'Arial', sans-serif;
-            }
-            header {
-                overflow: auto;
-                border-bottom: 1px #000 solid;
-                height: 50px;
-            }
-            
-            h2.banner {
-                float: left;
-                margin: 10px;
-            }
-            
-            ul.navigation {
-                float: right;
-                margin: 0 10px;
-                height: 100%;
-                line-height: 50px;
-            }
-            ul.navigation li {
-                display: inline-block;
-            }
-            
-            ul.navigation li img {
-                vertical-align: middle;
-            }
-            
-            
-            ul.navigation li a {
-                text-decoration: none;
-                color: #666;
-                
-                display: inline-block;
-            }
-            
-            ul.navigation li a:hover {
-                text-decoration: underline;
-            }
-            
-            #main {
-                padding: 25px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="/media/css/base.css" />
     {% endblock css %}
     
     {% block js %}
