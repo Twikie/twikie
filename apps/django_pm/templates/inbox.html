@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<ul>
+{% for message in messages %}
+    <li><a href="#">{{ message.author.username }}/</a></li>
+{% endfor %}
+</ul>
+
+{% endblock main %}
+

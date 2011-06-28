@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^projects/', include('frat.urls')),
     url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('frat.urls')),
     
-    
+    url(r'^inbox/', include('django_pm.urls')),    
     
     
     #needs to be last

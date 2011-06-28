@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Compose Message{% endblock title %}
+{% block main %}
+<form action="" method="post"> {% csrf_token %}
+<h3> Message </h3>
+    {{ form.as_p }}
+    <input type="submit" value="Register" class="submitBtn">
+</form>
+
+{% endblock main %}

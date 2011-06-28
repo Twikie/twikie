@@ -109,6 +109,7 @@ ROOT_URLCONF = 'twikie.urls'
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, '/apps/frat/templates'),
     os.path.join(PROJECT_PATH, '/apps/accounts/templates'),
+    os.path.join(PROJECT_PATH, '/apps/django_pm/templates'),
     os.path.join(PROJECT_PATH, 'templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
@@ -125,6 +126,7 @@ INSTALLED_APPS = (
     'accounts',
     'frat',
     'lib',
+    'django_pm',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
