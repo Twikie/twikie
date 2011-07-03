@@ -1,25 +1,4 @@
-$(document).ready(function(){
-    var settings = {
-		source_element: '#source',
-		annotation_xoff: -25,
-		annotation_yoff: 10,
-		add_control: '.add.control',
-		toggle_control: '.toggle.control',
-	};
-	var save_annotations_to = new Object();
-	var saved_annotations = {% autoescape off %} {{annotations}}; {% endautoescape %}
 
-	annotate_js(settings, save_annotations_to, saved_annotations);
-	
-	$('.save.control').click(function(){
-	    var json = JSON.stringify(save_annotations_to.json);
-	    console.log(json);
-	    $.post('annotations/new/', {annotations: json, revision:'{{revision.pk}}'}, function(data){
-	        console.log(data);
-	    });
-	});
-	
-});
 
 $(document).ajaxSend(function(event, xhr, settings) {
     function getCookie(name) {

@@ -3,7 +3,7 @@
 {% block main %}
 <ul>
 {% for message in messages %}
-    <li><a href="#">{{ message.author.username }}/</a></li>
+    <li><a href="{{message.pk}}/">{{message.title}} - {{ message.author.username }}</a></li>
 {% endfor %}
 </ul>
 

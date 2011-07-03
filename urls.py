@@ -8,6 +8,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+
+    url(r'^inbox/', include('django_pm.urls')),
     
     url(r'^accounts/', include('accounts.urls')),
     url(r'^(?P<user_name>\w+)/$', 'accounts.views.profile'),
@@ -15,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^projects/', include('frat.urls')),
     url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('frat.urls')),
     
-    url(r'^inbox/', include('django_pm.urls')),    
+      
     
     
     #needs to be last

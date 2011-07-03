@@ -9,7 +9,7 @@ from django_pm.forms import *
 @login_required
 def index(request):
     user = request.user
-    messages = Message.objects.filter(reciever=user)
+    messages = Message.objects.filter(recipients=user)
 
     return render(request, 'inbox.html', {'messages': messages})
 
@@ -22,9 +22,7 @@ def newmessage(request):
             new_message = form.save(commit=False)
             new_message.author = user
             new_message.save()
-
-            reciever = Reciever(reciever = request.user, message=new_message)
-            reciever.save()
+            form.save_m2m()
             return HttpResponse('Message Sent')
     else:
         form = NewMessageForm()
