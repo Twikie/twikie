@@ -15,7 +15,6 @@ class MessageNode(template.Node):
             return ''
 
         user = User.objects.get(username=username)
-        
         count = user.message_set.filter(is_unread=True).count()
 
         return count
