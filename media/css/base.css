@@ -23,7 +23,7 @@ ul.navigation {
     float: right;
     margin: 0 10px;
     height: 100%;
-    
+    font-size: 10pt;
 }
 ul.navigation li {
     display: inline-block;

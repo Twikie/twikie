@@ -22,7 +22,10 @@ def newmessage(request):
             new_message = form.save(commit=False)
             new_message.author = user
             new_message.save()
-            form.save_m2m()
+            
+            for recipient in request.POST.getlist('recipients'):
+                manager = MessageManager(recipient_id=recipient , message = new_message, )
+                manager.save()
             return HttpResponse('Message Sent')
     else:
         form = NewMessageForm()

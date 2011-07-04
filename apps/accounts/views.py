@@ -3,7 +3,7 @@ from accounts.forms import RegistrationForm
 from django.template import RequestContext
 from django.http import  HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login, authenticate
 from frat.models import Project
 from frat.cloud_handlers import create_cloud_container
 from django_pm.models import Message
@@ -13,10 +13,13 @@ def registration(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             new_user = form.save()
-            new_user.set_password(new_user.password)
+            password = new_user.password
+            new_user.set_password(password)
             create_cloud_container ( new_user.username )
             new_user.save()
-            return HttpResponse('User created')
+            user = authenticate(username=new_user.username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/%s' % user.username)
     else:
         form = RegistrationForm()
     return render(request, 'registration.html', {'form': form}, context_instance=RequestContext(request))
