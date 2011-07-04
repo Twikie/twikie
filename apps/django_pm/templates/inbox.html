@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block main %}
+<a href="new/">New Message</a>
 <ul>
 {% for message in messages %}
-    <li><a href="{{message.pk}}/">{{message.title}} - {{ message.author.username }}</a></li>
+    <li>
+        {% if message.is_unread %}<strong>{% endif %}<a href="{{message.pk}}/">{{message.title}} - {{ message.author.username }}</a>{% if message.is_unread %}</strong>{% endif %}
+    </li>
 {% endfor %}
 </ul>
 

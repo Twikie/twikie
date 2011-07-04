@@ -9,7 +9,7 @@ from django_pm.forms import *
 @login_required
 def index(request):
     user = request.user
-    messages = Message.objects.filter(recipients=user)
+    messages = Message.objects.filter(recipient=user)
 
     return render(request, 'inbox.html', {'messages': messages})
 
@@ -23,9 +23,9 @@ def newmessage(request):
             new_message.author = user
             new_message.save()
             
-            for recipient in request.POST.getlist('recipients'):
-                manager = MessageManager(recipient_id=recipient , message = new_message, )
-                manager.save()
+            #for recipient in request.POST.getlist('recipients'):
+            #    manager = MessageManager(recipient_id=recipient , message = new_message, )
+            #    manager.save()
             return HttpResponse('Message Sent')
     else:
         form = NewMessageForm()
@@ -36,4 +36,7 @@ def newmessage(request):
 def message(request, message_id):
     user = request.user
     message = Message.objects.get(id=message_id)
+    if(message.is_unread):
+        message.is_unread = False
+        message.save()
     return render(request, 'message.html', {'message': message})

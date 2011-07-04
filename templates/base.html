@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load gravatar %}
+<!DOCTYPE html>{% load messagetags %}
 <html>
 <head>
     <title>{% block title %}Home{% endblock %} - Twikie</title>
@@ -16,7 +16,7 @@
         <ul class="navigation">
             {% if user.is_authenticated %}
                 <li><a href="/">Home</a> |</li>
-                <li><a href="/inbox">Inbox ({{user.message_set.count}})</a> |</li>
+                <li><a href="/inbox">Inbox <{% message_count user.username %}></a> |</li>
                 <li><a href="/accounts/logout/">Log Out</a></li>
             {% else %}
                 <li><a href="/accounts/login/">Login</a> |</li>
