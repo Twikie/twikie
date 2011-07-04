@@ -49,10 +49,10 @@ ul.navigation li a:hover {
     background: -webkit-linear-gradient(left, #dddcdc, #f3f3f3);
     float: left;
     width: 200px;
-
     
-    
-    
+    bottom: 50px;
+    top: 75px;
+    position: absolute;
     box-shadow: 2px 0 5px #999;
     
 }
@@ -63,7 +63,32 @@ ul.navigation li a:hover {
 
 nav.secondary {
     height: 50px;
+    line-height: 50px;
     background: #862990;
+    padding: 0 15px;
+}
+
+nav.secondary h3 {
+    font-size: 12pt;
+    color: #fff;
+    float: left;
+    margin: 0;
+}
+
+nav.secondary a {
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    font-size: 9pt;
+    border: 1px #333 solid;
+    height: 15px;
+    padding: 5px 20px;
+    line-height: 15px;
+    background: -webkit-linear-gradient(top, #741f9a, #44085c);
+    border-radius: 25px;
+    text-shadow: 0 1px 1px #000;
+    font-weight: bold;
+    margin-top: 12px;
 }
 
 .content {
@@ -71,7 +96,8 @@ nav.secondary {
 }
 
 #bottom {
-    clear: both;
+    position: absolute;
+    bottom: 0;
     width: 100%;
     height: 50px;
     background: -webkit-linear-gradient(top, #ededed, #bfbfbf);

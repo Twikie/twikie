@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}{{page}}{% endblock title %}
 {% block main %}
-<p>Recipients:</p>
+<p>From: {{message.author}}</p>
+<p>To:</p>
 <ul>
 {% for recipient in message.recipients.all %}
     <li>{{recipient.username}}</p>
 {% endfor %}
 </ul>
-<p>{{message.author}}</p>
-<p>{{message.title}}</p>
+<p>Subject: {{message.title}}</p>
 <p>{{message.text}}</p>
 
 {% endblock main %}

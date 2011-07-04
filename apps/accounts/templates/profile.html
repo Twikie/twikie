@@ -4,7 +4,7 @@
 
 {% load gravatar %}
 {% block main %}
-<h3> <img src="{% gravatar_url owner.email %}" />{{owner}}'s Profile </h3>
+<h3> {% gravatar_img owner.email 48 %} {{owner}}'s Profile </h3>
 <h3> Projects </h3>
     {% if projects %}
         <ul>

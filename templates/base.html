@@ -15,16 +15,12 @@
         <h2 class="banner">Twikie</h2>
         <ul class="navigation">
             {% if user.is_authenticated %}
-                <li><img src="{% gravatar_url user.email %}" width="22" /></li>
-                <li><a href="/{{user}}">{{user}}</a> |</li>
-                <li><a href="/inbox">inbox ({{user.message_set.count}})</a> |</li>
-                <li><a href="/">home</a> |</li>
-                <li><a href="/projects/new/">new project</a> |</li>
-                <li><a href="/accounts/logout/">log out</a></li>
+                <li><a href="/">Home</a> |</li>
+                <li><a href="/inbox">Inbox ({{user.message_set.count}})</a> |</li>
+                <li><a href="/accounts/logout/">Log Out</a></li>
             {% else %}
-                <li><a href="/">home</a> |</li>
-                <li><a href="/accounts/login/">login</a> |</li>
-                <li><a href="/accounts/register/">register</a></li>
+                <li><a href="/accounts/login/">Login</a> |</li>
+                <li><a href="/accounts/register/">Register</a></li>
             {% endif %}
         </ul>
     </header>
@@ -34,6 +30,10 @@
     <div id="main">
         <nav class="secondary">
             {% block secondary-nav %}
+                {% if user.is_authenticated %}
+                    <h3>All Projects</h3>
+                    <a href="/{{user}}">My Account</a>
+                {% endif %}
             {% endblock secondary-nav %}
         </nav>
         <div class="content">
