@@ -55,7 +55,6 @@
 	font-weight: bold;
 	border: 5px #99f solid;
 	border-bottom: 0;
-
 	background: #fff;
 	z-index: 1000;
 	border-radius: 5px;
@@ -79,4 +78,44 @@
 
 .annotation a.toggle {
 	right: 18px;
+}
+
+#source {
+    float: left;
+}
+
+#todos {
+    float: left;
+    margin-left: 15px;
+}
+
+#todos h3 {
+    margin: 0;
+}
+
+#todos ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#todos li {
+    border-bottom: 1px #666 solid;
+}
+
+#todos li img {
+	float: left;
+	margin: 10px;
+	margin-left: 0;
+	
+}
+
+#todos li .info {
+	float: left;
+	margin: 10px;
+	margin-left: 0;
+	line-height: 18px;
+}
+
+.annotation p {
+	margin: 10px;
 }
