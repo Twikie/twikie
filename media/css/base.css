@@ -1,23 +1,29 @@
 body {
     margin: 0;
     font-family: 'Trebuchet-MS', 'Arial', sans-serif;
+    background: #f4f4f4;
 }
 header {
     overflow: auto;
-    border-bottom: 1px #000 solid;
-    height: 50px;
+    height: 75px;
+    background: -webkit-linear-gradient(top, #eee, #bcbcbc);
+    text-shadow: 0 1px 1px #fff;
+    color: #545454;
+    line-height: 75px;
 }
 
 h2.banner {
     float: left;
-    margin: 10px;
+    margin: 0;
+    margin-left: 15px;
+   
 }
 
 ul.navigation {
     float: right;
     margin: 0 10px;
     height: 100%;
-    line-height: 50px;
+    
 }
 ul.navigation li {
     display: inline-block;
@@ -30,8 +36,8 @@ ul.navigation li img {
 
 ul.navigation li a {
     text-decoration: none;
-    color: #666;
-    
+    color: #545454;
+    font-weight: bold;
     display: inline-block;
 }
 
@@ -39,6 +45,35 @@ ul.navigation li a:hover {
     text-decoration: underline;
 }
 
+#left-pane {
+    background: -webkit-linear-gradient(left, #dddcdc, #f3f3f3);
+    float: left;
+    width: 200px;
+
+    bottom: 50px;
+    top: 75px;
+    position: absolute;
+    box-shadow: 2px 0 5px #999;
+    
+}
+
 #main {
+    margin-left: 200px;
+}
+
+nav.secondary {
+    height: 50px;
+    background: #862990;
+}
+
+.content {
     padding: 25px;
+}
+
+#bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: -webkit-linear-gradient(top, #ededed, #bfbfbf);
 }

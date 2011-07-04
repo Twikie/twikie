@@ -17,7 +17,7 @@
             {% if user.is_authenticated %}
                 <li><img src="{% gravatar_url user.email %}" width="22" /></li>
                 <li><a href="/{{user}}">{{user}}</a> |</li>
-                <li><a href="/inbox">inbox</a> |</li>
+                <li><a href="/inbox">inbox ({{user.message_set.count}})</a> |</li>
                 <li><a href="/">home</a> |</li>
                 <li><a href="/projects/new/">new project</a> |</li>
                 <li><a href="/accounts/logout/">log out</a></li>
@@ -28,9 +28,22 @@
             {% endif %}
         </ul>
     </header>
+    <div id="left-pane">
+        <p>Projects</p>
+    </div>
     <div id="main">
-    {% block main %}
-    {% endblock main %}
+        <nav class="secondary">
+            {% block secondary-nav %}
+            {% endblock secondary-nav %}
+        </nav>
+        <div class="content">
+            {% block main %}
+            {% endblock main %}
+        </div>
+    </div>
+    <div id="bottom">
+        {% block bottom %}
+        {% endblock bottom %}
     </div>
 </body>
 </html>
