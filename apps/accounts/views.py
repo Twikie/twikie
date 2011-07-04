@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from accounts.forms import RegistrationForm
 from django.template import RequestContext
-from django.http import  HttpResponse
+from django.http import  HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
 from frat.models import Project
 from frat.cloud_handlers import create_cloud_container
+from django_pm.models import Message
 
 def registration(request):
     if request.method == 'POST':
@@ -27,3 +29,7 @@ def profile(request, user_name):
     user = User.objects.get(username=user_name);
     projects = Project.objects.filter(owner=user)
     return render(request, 'profile.html', {'owner': user, 'projects': projects} );
+    
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/')

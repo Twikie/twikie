@@ -7,6 +7,8 @@ sys.path.append('apps')
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+LOGIN_REDIRECT_URL = '/'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
