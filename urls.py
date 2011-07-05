@@ -12,10 +12,10 @@ urlpatterns = patterns('',
     url(r'^inbox/', include('django_pm.urls')),
     
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^(?P<user_name>\w+)/$', 'accounts.views.profile'),
+    url(r'^(?P<user_name>[-\w]+)/$', 'accounts.views.profile'),
     
     url(r'^projects/', include('frat.urls')),
-    url(r'^(?P<user_name>\w+)/(?P<project_name>\w+)/', include('frat.urls')),
+    url(r'^(?P<user_name>[-\w]+)/(?P<project_slug>[-\w]+)/', include('frat.urls')),
     
     url(r'^$', 'django.views.generic.simple.direct_to_template', {'template': 'base.html'}),
     
