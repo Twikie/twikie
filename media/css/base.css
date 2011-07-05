@@ -6,9 +6,8 @@ body {
 header {
     overflow: auto;
     height: 75px;
-    background: -webkit-linear-gradient(top, #eee, #bcbcbc);
-    text-shadow: 0 1px 1px #fff;
-    color: #545454;
+    background: -webkit-linear-gradient(top, #3e3e3e, #1d1d1d);
+    color: #fff;
     line-height: 75px;
 }
 
@@ -36,7 +35,7 @@ ul.navigation li img {
 
 ul.navigation li a {
     text-decoration: none;
-    color: #545454;
+    color: #fff;
     font-weight: bold;
     display: inline-block;
 }
@@ -58,18 +57,23 @@ ul.navigation li a:hover {
 }
 
 #main {
-    margin-left: 200px;
+    position: absolute;
+    left: 200px;
+    right: 0;
+    bottom: 50px;
+    top: 75px;
+    overflow: hidden;
 }
 
 nav.secondary {
-    height: 50px;
-    line-height: 50px;
-    background: #862990;
+    height: 25px;
+    line-height: 25px;
+    background: -webkit-linear-gradient(top, #8c288f, #682d91);
     padding: 0 15px;
 }
 
 nav.secondary h3 {
-    font-size: 12pt;
+    font-size: 11pt;
     color: #fff;
     float: left;
     margin: 0;
@@ -93,6 +97,12 @@ nav.secondary a {
 
 .content {
     padding: 25px;
+    position: absolute;
+    bottom: 0;
+    top: 25px;
+    left: 0;
+    right: 0;
+    overflow: auto;
 }
 
 #bottom {

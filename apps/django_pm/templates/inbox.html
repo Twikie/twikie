@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block secondary-nav %}
+    <h3>{% block title %}Your Inbox{% endblock title %}</h3>
+{% endblock secondary-nav %}
+
 {% block main %}
 <a href="new/">New Message</a>
 <ul>

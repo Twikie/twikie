@@ -82,11 +82,17 @@
 
 #source {
     float: left;
+    position: relative;
+}
+
+#source img {
+    
 }
 
 #todos {
     float: left;
     margin-left: 15px;
+    width: 250px;
 }
 
 #todos h3 {
@@ -100,6 +106,10 @@
 
 #todos li {
     border-bottom: 1px #666 solid;
+}
+
+#todos li p {
+    clear: both;
 }
 
 #todos li img {

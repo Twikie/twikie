@@ -25,15 +25,19 @@
         </ul>
     </header>
     <div id="left-pane">
+        {% block leftpane %}
         <p>Projects</p>
+        <ul>
+            <li><a href="/projects/all">All</a></li>
+            <li><a href="/projects/recent">Recent</a></li>
+            <li><a href="/projects/approved">Approved</a></li>
+        </ul>
+        <a href="/projects/new">New Project</a>
+        {% endblock leftpane %}
     </div>
     <div id="main">
         <nav class="secondary">
             {% block secondary-nav %}
-                {% if user.is_authenticated %}
-                    <h3>All Projects</h3>
-                    <a href="/{{user}}">My Account</a>
-                {% endif %}
             {% endblock secondary-nav %}
         </nav>
         <div class="content">

@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
-{% block title %}{{page}}{% endblock title %}
+
+{% block secondary-nav %}
+    <h3>{% block title %} {{message.title}} {% endblock title %}</h3>
+{% endblock secondary-nav %}
+
 {% block main %}
 <p>From: {{message.author}}</p>
 <p>To: {{message.recipient}}</p>

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}Log in{% endblock title %}
+{% block secondary-nav %}
+    <h3>{% block title %}Log In{% endblock title %}</h3>
+{% endblock secondary-nav %}
 {% block main %}
 
 <form action="" method="post"> {% csrf_token %}
