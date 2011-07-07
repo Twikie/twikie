@@ -8,11 +8,12 @@
     {% endblock css %}
     
     {% block js %}
+        <script src="http://remysharp.com/downloads/html5.js"></script>
     {% endblock js %}
 </head>
 <body>
     <header>
-        <a class="logo"><img src="/media/img/logo.png" alt="Twikie" title="Twikie" /></a>
+        <a href="/" class="logo"><img src="/media/img/logo.png" alt="Twikie" title="Twikie" /></a>
         <ul class="navigation">
             {% if user.is_authenticated %}
                 <li><a href="/">Home</a> |</li>

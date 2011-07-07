@@ -1,14 +1,25 @@
+a img {
+    border: 0;
+}
+
+header {
+    display: block;
+}
+
 body {
     margin: 0;
     font-family: 'Trebuchet-MS', 'Arial', sans-serif;
     background: #f4f4f4;
+    font-size: 12pt;
 }
 header {
-    overflow: auto;
+    
     height: 75px;
+    background-color: #2e2e2e;
     background: -webkit-linear-gradient(top, #3e3e3e, #1d1d1d);
+    background: -moz-linear-gradient(top, #3e3e3e, #1d1d1d);
+    background: linear-gradient(top, #3e3e3e, #1d1d1d);
     color: #fff;
-
 }
 
 header .logo {
@@ -48,7 +59,10 @@ ul.navigation li a:hover {
 
 #left-pane {
     color: #424242;
+    background: #eee;
     background: -webkit-linear-gradient(left, #dddcdc, #f3f3f3);
+    background: -moz-linear-gradient(left, #dddcdc, #f3f3f3);
+    background: linear-gradient(left, #dddcdc, #f3f3f3);
     float: left;
     width: 200px;
     bottom: 0;
@@ -60,6 +74,7 @@ ul.navigation li a:hover {
 
 #left-pane .title {
     padding-left: 55px;
+    font-weight: bold;
     line-height: 60px;
     background: #e2e6eb url('/media/img/icons/projects.png') 20px center no-repeat;
 }
@@ -76,6 +91,7 @@ ul.navigation li a:hover {
 }
 
 #left-pane li a {
+    font-size: 10pt;
     padding-left: 55px;
     display: block;
     line-height: 45px;
@@ -83,11 +99,14 @@ ul.navigation li a:hover {
     border-top: 1px #c7c7c7 solid;
 }
 
-#left-pane li:first-child {
+#left-pane li:hover {
+    background: #ddd;
     background: -webkit-linear-gradient(top, #eee, #cbcbcb);
+    background: -moz-linear-gradient(top, #eee, #cbcbcb);
+    background: -linear-gradient(top, #eee, #cbcbcb);
 }
 
-#left-pane li:first-child a {
+#left-pane li:hover a {
     color: #8d288e;
 }
 
@@ -114,7 +133,10 @@ ul.navigation li a:hover {
     width: 100px;
     height: 100%;
     float: left;
+    background: #ccc;
     background: -webkit-linear-gradient(top, #fff, #a4a4a4);
+    background: -moz-linear-gradient(top, #fff, #a4a4a4);
+    background: linear-gradient(top, #fff, #a4a4a4);
 }
 
 #left-pane .buttons .button:first-child {
@@ -136,6 +158,7 @@ ul.navigation li a:hover {
     position: absolute;
     width: 100%;
     bottom: 5px;
+    left: 0;
 }
 
 #left-pane .buttons .button a.settings {
@@ -159,7 +182,10 @@ ul.navigation li a:hover {
 nav.secondary {
     height: 25px;
     line-height: 25px;
+    background: #7c2891;
     background: -webkit-linear-gradient(top, #8c288f, #682d91);
+    background: -moz-linear-gradient(top, #8c288f, #682d91);
+    background: linear-gradient(top, #8c288f, #682d91);
     padding: 0 15px;
 }
 
@@ -168,22 +194,6 @@ nav.secondary h3 {
     color: #fff;
     float: left;
     margin: 0;
-}
-
-nav.secondary a {
-    float: right;
-    color: #fff;
-    text-decoration: none;
-    font-size: 9pt;
-    border: 1px #333 solid;
-    height: 15px;
-    padding: 5px 20px;
-    line-height: 15px;
-    background: -webkit-linear-gradient(top, #741f9a, #44085c);
-    border-radius: 25px;
-    text-shadow: 0 1px 1px #000;
-    font-weight: bold;
-    margin-top: 12px;
 }
 
 .content {
@@ -201,6 +211,9 @@ nav.secondary a {
     bottom: 0;
     width: 100%;
     height: 50px;
+    background: #cdcdcd;
     background: -webkit-linear-gradient(top, #ededed, #bfbfbf);
+    background: -moz-linear-gradient(top, #ededed, #bfbfbf);
+    background: linear-gradient(top, #ededed, #bfbfbf);
     border-top: 1px #bcbcbc solid;
 }
