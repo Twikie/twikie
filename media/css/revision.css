@@ -86,13 +86,25 @@
 }
 
 #source img {
-    
+    max-width: 100%;
+}
+
+#main {
+    right: 200px;
+}
+
+#right-pane {
+    background: -webkit-linear-gradient(right, #dddcdc, #f3f3f3);
+    right: 0;
+    width: 250px;
+    bottom: 50px;
+    top: 75px;
+    position: absolute;
+    border-left: 1px #aaa solid;
 }
 
 #todos {
-    float: left;
-    margin-left: 15px;
-    width: 250px;
+    margin: 0 15px;
 }
 
 #todos h3 {

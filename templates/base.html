@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <h2 class="banner">Twikie</h2>
+        <a class="logo"><img src="/media/img/logo.png" alt="Twikie" title="Twikie" /></a>
         <ul class="navigation">
             {% if user.is_authenticated %}
                 <li><a href="/">Home</a> |</li>
@@ -26,13 +26,20 @@
     </header>
     <div id="left-pane">
         {% block leftpane %}
-        <p>Projects</p>
+        <div class="title">Projects</div>
         <ul>
-            <li><a href="/projects/all">All</a></li>
-            <li><a href="/projects/recent">Recent</a></li>
-            <li><a href="/projects/approved">Approved</a></li>
+            <li><a class="all" href="/projects/all">All</a></li>
+            <li><a class="recent" href="/projects/recent">Recent</a></li>
+            <li><a class="approved" href="/projects/approved">Approved</a></li>
         </ul>
-        <a href="/projects/new">New Project</a>
+        <div class="buttons">
+            <div class="button">
+                <a class="new" href="/projects/new"><span>New Project</span></a>
+            </div>
+            <div class="button">
+                <a class="settings" href="#"><span>Settings</span></a>
+            </div>
+        </div>
         {% endblock leftpane %}
     </div>
     <div id="main">
@@ -44,6 +51,10 @@
             {% block main %}
             {% endblock main %}
         </div>
+    </div>
+    <div id="right-pane">
+        {% block rightpane %}
+        {% endblock rightpane %}
     </div>
     <div id="bottom">
         {% block bottom %}
