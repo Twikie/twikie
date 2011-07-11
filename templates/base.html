@@ -12,6 +12,7 @@
     {% endblock js %}
 </head>
 <body>
+    {%block body%}
     <header>
         <a href="/" class="logo"><img src="/media/img/logo.png" alt="Twikie" title="Twikie" /></a>
         <ul class="navigation">
@@ -61,5 +62,6 @@
         {% block bottom %}
         {% endblock bottom %}
     </div>
+    {%endblock body%}
 </body>
 </html>

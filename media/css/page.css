@@ -1,0 +1,89 @@
+.backbar {
+    height: 29px;
+    background: -webkit-linear-gradient(top, #323232, #1d1d1d);
+}
+
+.backbar a {
+    color: #fff;
+    text-decoration: none;
+    line-height: 29px;
+    font-size: 10pt;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.infobar {
+    line-height: 47px;
+    border-bottom: 5px #a6a6a6 solid;
+}
+
+.infobar .name {
+    font-size: 12pt;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.infobar .access {
+    font-size: 8pt;
+    color: #8b8b8b;
+    margin-left: 20px;
+}
+
+.toolbar {
+    height: 92px;
+    line-height: 92px;
+    border-bottom: 1px #d1d1d1 solid;
+}
+
+.toolbar .tools {
+    height: 100%;
+    float: left;
+}
+
+.toolbar .pages {
+    float: left;
+    margin-left:250px;
+    border-left: 1px #bebebe solid;
+    height: 100%;
+}
+
+.toolbar ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.toolbar li {
+    float: left;
+    width: 100px;
+    text-align: center;
+    border-right: 1px #bebebe solid;
+    position: relative;
+}
+
+.toolbar  li a {
+    display: block;
+    height: 100%;
+    color: #616161;
+    text-decoration: none;
+}
+
+.toolbar li.selected {
+    background: #d1d1d1;
+}
+
+.toolbar li.selected a {
+    color: #232323;
+}
+
+.toolbar li.selected:after {
+    content: '';
+    height: 0;
+    width: 0;
+    border: 8px transparent solid;
+    border-top: 12px #d1d1d1 solid;
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    margin-left: -8px;
+}
